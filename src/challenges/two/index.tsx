@@ -40,9 +40,9 @@ function ShowCard({ show: { image, genres, name, summary } }: Show) {
         shadow: "lg"
       }}
     >
-      <Image fallbackSrc="https://via.placeholder.com/112x157.png?text=No+image" width={112} height={157} src={image?.medium} />
+      <Image fallbackSrc="https://via.placeholder.com/112x157.png?text=No+image" width={112} minHeight="157px" src={image?.medium} />
       <VStack w="100%" p={4} spacing={2} alignItems="flex-start">
-        <HStack w="inherit" spacing={2}>
+        <HStack w="inherit" spacing={2} flexWrap="wrap">
           {genres.map((genre) => (
             <Tag
               size="sm"
