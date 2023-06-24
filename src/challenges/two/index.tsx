@@ -45,6 +45,7 @@ function ShowCard({ show: { image, genres, name, summary } }: Show) {
         <HStack w="inherit" spacing={2} flexWrap="wrap">
           {genres.map((genre) => (
             <Tag
+              mb={1}
               size="sm"
               key={genre}
               color="black"

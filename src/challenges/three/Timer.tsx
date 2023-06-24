@@ -1,5 +1,4 @@
 import { Button, HStack, Text } from "@chakra-ui/react";
-import { useEffect } from "react";
 
 import TimerContextProvider, { useTimer } from './TimerContext'
 
