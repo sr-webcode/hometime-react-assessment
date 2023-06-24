@@ -7,10 +7,11 @@ interface IMouseLocationProps {
 }
 
 type TboundSize = { left: number, top: number }
-const DEFAULT_BOUNDING_SIZE = { left: 0, top: 0 }
+const DEFAULT_BOUNDING_SIZE: TboundSize = { left: 0, top: 0 }
 
 
 function useMouseLocation({ containerRef, coordinateRef }: IMouseLocationProps) {
+
   const boundingRef = useRef<TboundSize>(DEFAULT_BOUNDING_SIZE)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 
@@ -32,11 +33,11 @@ function useMouseLocation({ containerRef, coordinateRef }: IMouseLocationProps) 
     onRecalibrateBoundSize(containerRef.current)
     if (containerRef.current && coordinateRef.current) {
       containerRef.current.addEventListener('mousemove', onMouseTrack)
+      containerRef.current.addEventListener('mouseenter', () => onRecalibrateBoundSize(containerRef.current))
     }
     // to maintain accuracy of coordinates on window-size/scroll
     window.addEventListener("resize", () => onRecalibrateBoundSize(containerRef.current))
     window.addEventListener("scroll", () => onRecalibrateBoundSize(containerRef.current))
-    
   }, [containerRef.current, coordinateRef.current])
 
   return mousePosition
