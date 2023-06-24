@@ -36,7 +36,6 @@ const TimeContextProvider = ({ children }: PropsWithChildren) => {
                 if (!timerRef.current) return;
                 clearInterval(timerRef.current)
                 if (action === 'RESET') {
-                    timerRef.current = 0
                     setTimer(INITIAL_STATE.timeCount)
                 } else {
                     setTimer((prev) => ({ ...prev, action: 'START' }))
